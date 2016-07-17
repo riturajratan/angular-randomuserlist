@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Angular Demo</title>
+    <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+</head>
+
+<body role="document">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Angular Demo  <i>Created by R.R.R</i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container theme-showcase" role="main" ng-app="SPXISDEMO" ng-controller="userController">
+        <div class="jumbotron">
+            <h1>Random Users List</h1>
+            <div class="row">
+                <div class="col-sm-6 col-md-4" ng-repeat="user in usersList track by $index">
+                    <div class="thumbnail">
+                        <img ng-src="{{user.picture.large}}" class="img-circle">
+                        <div class="caption" >
+                            <h3> <span class="glyphicon glyphicon-user" aria-hidden="true"> {{user.name.first}}</span> </h3>
+                            <p><span class="glyphicon glyphicon-envelope truncate" aria-hidden="true"> {{user.email}} </span></p>
+                            <p> <span class="glyphicon glyphicon-phone" aria-hidden="true"> {{user.phone}} </span><span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" ng-diabled="isLoading" ng-click="loadUsers()">{{loading}} </button>
+        </div>
+    </div>
+    <!-- Added Scripts Files-->
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./scripts/app.js"></script>
+</body>
+
+</html>
